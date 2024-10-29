@@ -6,7 +6,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.loginapp.R;
 import com.example.loginapp.models.Resena;
+
 import java.util.List;
 
 public class ResenaAdapter extends RecyclerView.Adapter<ResenaAdapter.ResenaViewHolder> {
@@ -20,7 +23,8 @@ public class ResenaAdapter extends RecyclerView.Adapter<ResenaAdapter.ResenaView
     @NonNull
     @Override
     public ResenaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_2, parent, false);
+        // Inflar el layout item_resena.xml
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_resena, parent, false);
         return new ResenaViewHolder(view);
     }
 
@@ -29,6 +33,8 @@ public class ResenaAdapter extends RecyclerView.Adapter<ResenaAdapter.ResenaView
         Resena resena = resenas.get(position);
         holder.commentTextView.setText(resena.getComentario());
         holder.dateTextView.setText(resena.getFechaCreacion());
+        holder.libroTextView.setText("Libro ID: " + resena.getLibro());
+        holder.usuarioTextView.setText("Usuario ID: " + resena.getUsuario());
     }
 
     @Override
@@ -39,11 +45,16 @@ public class ResenaAdapter extends RecyclerView.Adapter<ResenaAdapter.ResenaView
     static class ResenaViewHolder extends RecyclerView.ViewHolder {
         TextView commentTextView;
         TextView dateTextView;
+        TextView libroTextView;  // Añadir declaración de libroTextView
+        TextView usuarioTextView; // Añadir declaración de usuarioTextView
 
         ResenaViewHolder(@NonNull View itemView) {
             super(itemView);
-            commentTextView = itemView.findViewById(android.R.id.text1);
-            dateTextView = itemView.findViewById(android.R.id.text2);
+            // Inicializar los TextViews desde el layout
+            commentTextView = itemView.findViewById(R.id.comentarioTextView);
+            dateTextView = itemView.findViewById(R.id.fechaTextView);
+            libroTextView = itemView.findViewById(R.id.libroTextView); // Inicializar libroTextView
+            usuarioTextView = itemView.findViewById(R.id.usuarioTextView); // Inicializar usuarioTextView
         }
     }
 }
