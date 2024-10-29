@@ -66,10 +66,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     String accessToken = response.body().getAccess();
-                    // Guardar el token de acceso en SharedPreferences
+
+                    // Guardar el token de acceso y el email en SharedPreferences
                     getSharedPreferences("MyPrefs", MODE_PRIVATE)
                             .edit()
                             .putString("token", accessToken)
+                            .putString("usuario_email", email) // Guardar el email correctamente
                             .apply();
 
                     Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
@@ -78,6 +80,10 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Login failed. Please try again.", Toast.LENGTH_SHORT).show();
                 }
+
+                // Para depurar: verificar el email guardado
+                String emailUsuario = getSharedPreferences("MyPrefs", MODE_PRIVATE).getString("usuario_email", null);
+                Log.d("LoginActivity", "Email del usuario logueado: " + emailUsuario);
             }
 
             @Override
@@ -87,5 +93,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 }
