@@ -1,26 +1,24 @@
 package com.example.loginapp.models;
 
 public class Resena {
-    private int libro;
-    private int usuario;
+    private String titulo_libro;
+    private String email_usuario;
     private String comentario;
     private String fecha_creacion;
 
-    // Constructor
-    public Resena(int libro, int usuario, String comentario, String fecha_creacion) {
-        this.libro = libro;
-        this.usuario = usuario;
+    public Resena(String titulo_libro, String email_usuario, String comentario, String fecha_creacion) {
+        this.titulo_libro = titulo_libro;
+        this.email_usuario = email_usuario;
         this.comentario = comentario;
         this.fecha_creacion = fecha_creacion;
     }
 
-    // Getters
-    public int getLibro() {
-        return libro;
+    public String getTituloLibro() {
+        return titulo_libro;
     }
 
-    public int getUsuario() {
-        return usuario;
+    public String getEmailUsuario() {
+        return email_usuario;
     }
 
     public String getComentario() {

@@ -33,8 +33,8 @@ public class ResenaAdapter extends RecyclerView.Adapter<ResenaAdapter.ResenaView
         Resena resena = resenas.get(position);
         holder.commentTextView.setText(resena.getComentario());
         holder.dateTextView.setText(resena.getFechaCreacion());
-        holder.libroTextView.setText("Libro ID: " + resena.getLibro());
-        holder.usuarioTextView.setText("Usuario ID: " + resena.getUsuario());
+        holder.libroTextView.setText("Libro: " + resena.getTituloLibro());
+        holder.usuarioTextView.setText("Usuario: " + resena.getEmailUsuario());
     }
 
     @Override
