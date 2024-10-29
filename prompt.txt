@@ -1,0 +1,36 @@
+Prompt para generación de código de aplicación de inicio de sesión en Android:
+
+Crea una aplicación de inicio de sesión en Android utilizando Retrofit para realizar llamadas a una API. La aplicación debe tener las siguientes características:
+
+Pantallas:
+
+LoginActivity: Esta actividad debe tener dos campos de entrada (email y contraseña) y un botón de inicio de sesión.
+WelcomeActivity: Esta actividad debe mostrar un mensaje de bienvenida y el token obtenido tras el inicio de sesión. También debe tener un botón que redirija a otra actividad llamada "Mis Reseñas".
+Modelos:
+
+LoginRequest: Clase que contenga los campos de email y contraseña para el inicio de sesión.
+User: Clase que contenga el token. El formato del token es el siguiente:
+json
+Copiar código
+{
+    "refresh": "string",
+    "access": "string",
+    "user": {
+        "email": "string",
+        "username": "string"
+    }
+}
+Configuración de Retrofit:
+
+Implementar Retrofit para realizar la conexión con la API, asegurándose de incluir el cliente OkHttp.
+La URL base de la API es: https://backend-mercado-libro-mobile.onrender.com.
+SharedPreferences:
+
+Almacenar el token en SharedPreferences después de un inicio de sesión exitoso.
+Manifest:
+
+Configurar los permisos de Internet y las actividades en el archivo AndroidManifest.xml.
+Manejo de errores:
+
+Incluir mensajes de error si el inicio de sesión falla o si hay problemas de conexión a Internet.
+Recuerda seguir estos pasos y estructurar el código de manera que sea fácil de entender y mantener.
